@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:nestedScrollingEnabled="true"
+        android:id="@+id/main_container">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/appbar_container"
+            android:visibility="gone">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <include layout="@layout/appbar" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:clipToPadding="false"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <GridView
+                android:id="@+id/gridView_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/feed_view_padding_vertical"
+                android:paddingBottom="@dimen/feed_view_padding_vertical"
+                android:gravity="center"
+                android:numColumns="2"
+                android:verticalSpacing="24dp"
+                android:horizontalSpacing="10dp"
+                android:stretchMode="spacingWidthUniform"
+        />
+
+        <!--android:layoutAnimation="@anim/recycler_view_animation"-->
+
+    </androidx.core.widget.NestedScrollView>
+
+    <include layout="@layout/loading_badge" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

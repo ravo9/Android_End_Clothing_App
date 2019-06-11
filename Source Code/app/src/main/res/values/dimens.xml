@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Dimensions Section -->
+    <dimen name="background_badge_padding">3dp</dimen>
+    <dimen name="background_badge_corner_radius">2px</dimen>
+
+    <dimen name="appbar_padding_vertical">20dp</dimen>
+    <dimen name="appbar_text_size">20sp</dimen>
+    <dimen name="appbar_margin_end">12dp</dimen>
+    <dimen name="appbar_button_refresh_length">60dp</dimen>
+
+    <dimen name="articles_list_row_padding">20dp</dimen>
+    <dimen name="articles_list_row_margin_horizontal">20dp</dimen>
+    <dimen name="articles_list_row_margin_vertical">10dp</dimen>
+    <dimen name="articles_list_row_internal_spacing">20dp</dimen>
+    <dimen name="articles_list_row_elevation">2dp</dimen>
+    <dimen name="articles_list_row_thumbnail_length">100dp</dimen>
+    <dimen name="articles_list_row_text_size_main">12sp</dimen>
+
+    <dimen name="articles_viewpager_height">200dp</dimen>
+
+    <dimen name="articles_viewpager_item_width">200dp</dimen>
+    <dimen name="articles_viewpager_item_height">100dp</dimen>
+    <dimen name="articles_viewpager_item_padding">15dp</dimen>
+    <dimen name="articles_viewpager_item_margin_bottom">15dp</dimen>
+    <dimen name="articles_viewpager_item_elevation">2dp</dimen>
+    <dimen name="articles_viewpager_item_text_size_main">14sp</dimen>
+
+    <dimen name="feed_view_padding_vertical">15dp</dimen>
+
+    <dimen name="detailed_article_view_elevation">10dp</dimen>
+    <dimen name="detailed_article_view_vertical_extra_spacing">50dp</dimen>
+    <dimen name="detailed_article_view_padding_horizontal">20dp</dimen>
+    <dimen name="detailed_article_view_padding_top">30dp</dimen>
+    <dimen name="detailed_article_view_padding_bottom">10dp</dimen>
+    <dimen name="detailed_article_view_webview_margin">15dp</dimen>
+    <dimen name="detailed_article_view_cross_button_length">30dp</dimen>
+    <dimen name="detailed_article_view_cross_button_margin">10dp</dimen>
+    <dimen name="detailed_article_view_background_alpha">0.7</dimen>
+
+    <dimen name="loading_badge_elevation">3dp</dimen>
+    <dimen name="loading_badge_button_elevation">10dp</dimen>
+    <dimen name="loading_badge_text_size_big">20sp</dimen>
+    <dimen name="loading_badge_text_size_medium">20sp</dimen>
+    <dimen name="loading_badge_internal_spacing">20dp</dimen>
+    <dimen name="loading_badge_progressbar_margin">30dp</dimen>
+
+    <dimen name="grid_single_item_height">350dp</dimen>
+
+</resources>

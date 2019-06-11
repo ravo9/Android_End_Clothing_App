@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/column_triplet_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <include
+            layout="@layout/articles_list_row"
+            android:id="@+id/article01"/>
+
+    <include
+            layout="@layout/articles_list_row"
+            android:id="@+id/article02"/>
+
+    <include
+            layout="@layout/articles_list_row"
+            android:id="@+id/article03"/>
+
+</LinearLayout>
