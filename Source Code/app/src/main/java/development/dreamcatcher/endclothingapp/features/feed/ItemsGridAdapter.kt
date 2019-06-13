@@ -47,7 +47,7 @@ class ItemsGridAdapter (val context: Context) : BaseAdapter() {
         val price = item.price
         var producer = item.producer
         var color = item.producer
-        if (producer == null) producer
+        if (producer == null) producer = ""
         if (color == null) color = ""
 
         // Set data within the view

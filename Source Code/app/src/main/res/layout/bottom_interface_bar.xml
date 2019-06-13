@@ -1,0 +1,60 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:animateLayoutChanges="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_interface_bar_height"
+        android:background="@color/colorBackground">
+
+        <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/bottom_interface_icon_spacing"
+                android:src="@drawable/search_image"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/label_icon"/>
+
+        <ImageView
+                android:id="@+id/label_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/bottom_interface_icon_spacing"
+                android:src="@drawable/label_image"
+
+                app:layout_constraintStart_toEndOf="@id/search_icon"
+                app:layout_constraintEnd_toStartOf="@id/end_icon"/>
+
+        <ImageView
+                android:id="@+id/end_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/bottom_interface_icon_spacing"
+                android:src="@drawable/end_logo_image"
+
+                app:layout_constraintStart_toEndOf="@id/label_icon"
+                app:layout_constraintEnd_toStartOf="@id/human_icon"/>
+
+        <ImageView
+                android:id="@+id/human_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/bottom_interface_icon_spacing"
+                android:src="@drawable/human_image"
+                android:clickable="true"
+
+                app:layout_constraintStart_toEndOf="@id/end_icon"
+                app:layout_constraintEnd_toStartOf="@id/shopping_icon"/>
+
+        <ImageView
+                android:id="@+id/shopping_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/bottom_interface_icon_spacing"
+                android:src="@drawable/shopping_image"
+                android:clickable="true"
+
+                app:layout_constraintStart_toEndOf="@id/human_icon"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

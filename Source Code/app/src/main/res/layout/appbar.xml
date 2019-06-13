@@ -30,7 +30,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@id/btn_back"
                 android:text="@string/app_name"
-                android:letterSpacing="0.1"
+                android:textAllCaps="true"
+                android:letterSpacing="0.04"
                 android:textSize="@dimen/appbar_text_size"/>
 
         <ImageButton

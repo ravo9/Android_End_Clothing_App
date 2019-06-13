@@ -7,13 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import development.dreamcatcher.endclothingapp.R
 import development.dreamcatcher.endclothingapp.data.database.ItemEntity
-import development.dreamcatcher.endclothingapp.features.detailedArticle.DetailedItemFragment
 import development.dreamcatcher.endclothingapp.injection.EndClothingApp
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.appbar.*
+import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.loading_badge.*
 import javax.inject.Inject
 
@@ -97,7 +94,7 @@ class FeedActivity : AppCompatActivity() {
         subscribeForItems()
     }
 
-    private fun displayDetailedView(itemId: String) {
+    /*private fun displayDetailedView(itemId: String) {
 
         val fragment = DetailedItemFragment()
         val bundle = Bundle()
@@ -108,15 +105,15 @@ class FeedActivity : AppCompatActivity() {
         fragmentTransaction.add(R.id.main_container, fragment)
             .addToBackStack(null)
             .commit()
-    }
+    }*/
 
     private fun showLoadingView(loadingState: Boolean) {
         if (loadingState) {
             loading_container.visibility = View.VISIBLE
-            appbar_container.visibility = View.GONE
+            top_interface_bar_container.visibility = View.GONE
         } else {
             loading_container.visibility = View.GONE
-            appbar_container.visibility = View.VISIBLE
+            top_interface_bar_container.visibility = View.VISIBLE
         }
     }
 }

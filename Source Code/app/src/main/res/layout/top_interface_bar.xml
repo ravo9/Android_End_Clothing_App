@@ -2,27 +2,70 @@
         xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools" android:animateLayoutChanges="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/top_interface_bar_height"
         android:nestedScrollingEnabled="true"
-        android:background="@drawable/background_badge"
+        android:background="@color/colorBackground"
         app:layout_collapseMode="parallax">
 
-        <Spinner
-                android:id="@+id/spinner_sort"
+        <RelativeLayout
+                android:id="@+id/spinner_sort_container"
+                android:background="@drawable/background_top_interface_bar_item"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:prompt="@string/app_name"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/spinner_view"
-                tools:ignore="MissingConstraints"/>
+                app:layout_constraintEnd_toStartOf="@id/spinner_view_container"
+                tools:ignore="MissingConstraints">
 
-        <Spinner
-                android:id="@+id/spinner_view"
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center"
+                        android:text="@string/sort"/>
+
+                <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/spinner_view_container"
+                android:background="@drawable/background_top_interface_bar_item"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
 
-                app:layout_constraintStart_toEndOf="@id/spinner_sort"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="MissingConstraints"/>
+                app:layout_constraintStart_toEndOf="@id/spinner_sort_container"
+                app:layout_constraintEnd_toStartOf="@id/textView_filter"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center"
+                        android:text="@string/view"/>
+
+                <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+                android:background="@drawable/background_top_interface_bar_item"
+                android:id="@+id/textView_filter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/filter"
+                android:gravity="center"
+
+                app:layout_constraintStart_toEndOf="@id/spinner_view_container"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

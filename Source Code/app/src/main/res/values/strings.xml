@@ -5,6 +5,9 @@
     <string name="loading">Loading…</string>
     <string name="network_problem_check_internet_connection">Network problem. Check Internet connection please.</string>
     <string name="try_again">Try again</string>
+    <string name="sort">Sort</string>
+    <string name="view">View</string>
+    <string name="filter">Filter</string>
 
     <string name="producer_default_value">Default Producer</string>
     <string name="color_default_value">Default Colour</string>

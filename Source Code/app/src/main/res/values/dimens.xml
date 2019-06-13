@@ -13,6 +13,11 @@
     <dimen name="appbar_icon_width">25dp</dimen>
     <dimen name="appbar_button_refresh_length">60dp</dimen>
 
+    <dimen name="top_interface_bar_height">60dp</dimen>
+
+    <dimen name="bottom_interface_bar_height">48dp</dimen>
+    <dimen name="bottom_interface_icon_spacing">12dp</dimen>
+
     <dimen name="articles_list_row_padding">20dp</dimen>
     <dimen name="articles_list_row_margin_horizontal">20dp</dimen>
     <dimen name="articles_list_row_margin_vertical">10dp</dimen>
@@ -50,6 +55,7 @@
     <dimen name="loading_badge_progressbar_margin">30dp</dimen>
 
     <dimen name="grid_single_item_height">350dp</dimen>
+    <dimen name="grid_single_item_padding">15dp</dimen>
     <dimen name="grid_single_item_thumbnail_margin_bottom">20dp</dimen>
 
 </resources>
