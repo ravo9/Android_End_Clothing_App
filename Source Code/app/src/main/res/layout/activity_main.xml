@@ -6,6 +6,7 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:nestedScrollingEnabled="true"
+        android:background="@color/colorBackground"
         android:id="@+id/main_container">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -20,6 +21,8 @@
                 android:layout_height="wrap_content">
 
             <include layout="@layout/appbar" />
+
+            <include layout="@layout/top_interface_bar" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -40,9 +43,12 @@
                 android:paddingBottom="@dimen/feed_view_padding_vertical"
                 android:gravity="center"
                 android:numColumns="2"
+                android:nestedScrollingEnabled="true"
+                android:fastScrollEnabled="true"
+                android:columnWidth="80dp"
+                android:stretchMode="columnWidth"
                 android:verticalSpacing="24dp"
                 android:horizontalSpacing="10dp"
-                android:stretchMode="spacingWidthUniform"
         />
 
         <!--android:layoutAnimation="@anim/recycler_view_animation"-->

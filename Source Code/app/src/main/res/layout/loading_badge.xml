@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/loading_badge_internal_spacing"
-            android:text="@string/loading_news"
+            android:text="@string/loading"
             android:textSize="@dimen/loading_badge_text_size_medium"
             android:textAlignment="center"/>
 

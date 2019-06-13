@@ -2,8 +2,11 @@
 
     <string name="app_name">End Clothing App</string>
 
-    <string name="loading_news">Loading news…</string>
+    <string name="loading">Loading…</string>
     <string name="network_problem_check_internet_connection">Network problem. Check Internet connection please.</string>
     <string name="try_again">Try again</string>
+
+    <string name="producer_default_value">Default Producer</string>
+    <string name="color_default_value">Default Colour</string>
 
 </resources>

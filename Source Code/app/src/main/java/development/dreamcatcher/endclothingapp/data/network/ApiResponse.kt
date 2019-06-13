@@ -20,6 +20,12 @@ class ApiResponse {
         @SerializedName("price")
         val price: String,
 
+        @SerializedName("producer")
+        val producer: String,
+
+        @SerializedName("color")
+        val color: String,
+
         @SerializedName("image")
         val image: String?)
 }

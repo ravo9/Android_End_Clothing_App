@@ -46,9 +46,9 @@ class FeedActivity : AppCompatActivity() {
         subscribeForNetworkError()
 
         // Setup refresh button
-        btn_refresh.setOnClickListener{
+        /*btn_refresh.setOnClickListener{
             refreshItemsSubscription()
-        }
+        }*/
     }
 
     private fun setupRecyclerView() {

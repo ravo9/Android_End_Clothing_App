@@ -17,6 +17,8 @@ class ItemsDatabaseInteractor(private val itemsDatabase: ItemsDatabase) {
                 backEndId = it.id,
                 name = it.name,
                 price = it.price,
+                producer = it.producer,
+                color = it.color,
                 image = it.image)
             launch {
                 itemsDatabase.getItemsDao().insertNewItem(itemEntity)

@@ -8,6 +8,8 @@ data class ItemEntity(
         val backEndId: String,
         val name: String,
         val price: String,
+        val producer: String?,
+        val color: String?,
         val image: String?) {
 
         @PrimaryKey(autoGenerate = true)
