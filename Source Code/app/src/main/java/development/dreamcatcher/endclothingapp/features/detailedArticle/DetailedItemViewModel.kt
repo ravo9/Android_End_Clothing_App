@@ -10,7 +10,7 @@ import javax.inject.Inject
 class DetailedItemViewModel @Inject constructor(private val itemsRepository: ItemsRepository)
     : ViewModel(), LifecycleObserver {
 
-    fun getSingleSavedArticleById(articleId: String): LiveData<ItemEntity>? {
+    fun getSingleSavedItemById(articleId: String): LiveData<ItemEntity>? {
         return itemsRepository.getSingleSavedItemById(articleId)
     }
 }

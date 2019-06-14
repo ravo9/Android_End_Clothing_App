@@ -42,48 +42,43 @@ class ItemsDatabaseInteractorTest {
         itemsDatabaseInteractor = ItemsDatabaseInteractor(itemsDatabase!!)
 
         // Prepare fake data
-        val contentId = "fake/Item/Id"
-        val title = "Fake Item Title"
-        val summary = "Sport"
-        val contentUrl = "http://google.com"
+        val id = "932183"
+        val name = "Casual shirt"
+        val price = "£300"
         val thumbnailUrl = "http://google.com/picture.jpg"
 
-        // Prepare fake sub-objects
-        val mainImageThumbnailSubObject = ApiResponse.MainImageThumbnail(thumbnailUrl)
-        val imagesObjectSubObject = ApiResponse.Images(mainImageThumbnailSubObject)
-
         // Prepare fake Item (API object)
-        fakeItem = ApiResponse.Item(contentId, title, summary, contentUrl, imagesObjectSubObject)
+        fakeItem = ApiResponse.Item(id, name, price, null, thumbnailUrl)
 
         // Prepare fake Item Entity (DB object)
-        fakeItemEntity = ItemEntity(contentId, title, summary, contentUrl, thumbnailUrl)
+        fakeItemEntity = ItemEntity(id, name, price, null, thumbnailUrl)
     }
 
     @Test
-    fun saveArticleByDatabaseInteractor() {
+    fun saveItemByDatabaseInteractor() {
 
         // Perform the action
-        val resultStatus = itemsDatabaseInteractor!!.addNewArticle(fakeItem).value
+        val resultStatus = itemsDatabaseInteractor!!.addNewItem(fakeItem).value
 
         // Check results
         Assert.assertTrue(resultStatus!!)
     }
 
     @Test
-    fun fetchArticleByDatabaseInteractor() {
+    fun fetchItemByDatabaseInteractor() {
 
         // Prepare LiveData structure
-        val articleEntityLiveData = MutableLiveData<ItemEntity>()
-        articleEntityLiveData.setValue(fakeItemEntity);
+        val itemEntityLiveData = MutableLiveData<ItemEntity>()
+        itemEntityLiveData.setValue(fakeItemEntity);
 
         // Set testing conditions
-        Mockito.`when`(itemsDatabase?.getArticlesDao()).thenReturn(itemsDao)
-        Mockito.`when`(itemsDao?.getSingleSavedArticleById(anyString())).thenReturn(articleEntityLiveData)
+        Mockito.`when`(itemsDatabase?.getItemsDao()).thenReturn(itemsDao)
+        Mockito.`when`(itemsDao?.getSingleSavedItemById(anyString())).thenReturn(itemEntityLiveData)
 
         // Perform the action
-        val storedArticle = itemsDatabaseInteractor?.getSingleSavedItemById("fake-article-id")
+        val storedItem = itemsDatabaseInteractor?.getSingleSavedItemById("fake-item-id")
 
         // Check results
-        Assert.assertSame(articleEntityLiveData, storedArticle);
+        Assert.assertSame(itemEntityLiveData, storedItem);
     }
 }

@@ -31,20 +31,18 @@ class ItemsNetworkInteractorTest {
         itemsNetworkInteractor = ItemsNetworkInteractor(apiClient!!)
 
         // Prepare fake data
-        val contentId = "fake/Item/Id"
-        val title = "Fake Item Title"
-        val summary = "Sport"
-        val contentUrl = "http://google.com"
+        val id = "932183"
+        val name = "Casual shirt"
+        val price = "£300"
         val thumbnailUrl = "http://google.com/picture.jpg"
 
-        // Prepare fake sub-object
-        val mainImageThumbnailSubObject = ApiResponse.MainImageThumbnail(thumbnailUrl)
-        val imagesObjectSubObject = ApiResponse.Images(mainImageThumbnailSubObject)
-        val fakeArticle = ApiResponse.Item(contentId, title, summary, contentUrl, imagesObjectSubObject)
-        val fakeArticlesList = ArrayList<ApiResponse.Item>()
-        fakeArticlesList.add(fakeArticle)
+        // Prepare fake Item (API object)
+        val fakeItem = ApiResponse.Item(id, name, price, null, thumbnailUrl)
+
+        val fakeItemsList = ArrayList<ApiResponse.Item>()
+        fakeItemsList.add(fakeItem)
 
         // Prepare fake ApiResponse
-        fakeApiResponse.products = fakeArticlesList
+        fakeApiResponse.products = fakeItemsList
     }
 }

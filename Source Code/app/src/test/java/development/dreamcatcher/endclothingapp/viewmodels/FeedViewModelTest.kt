@@ -19,7 +19,7 @@ class FeedViewModelTest {
 
     private var viewModel: FeedViewModel? = null
     private var fakeItemEntity: ItemEntity? = null
-    private var fakeArticleEntitiesList = ArrayList<ItemEntity>()
+    private var fakeItemEntitiesList = ArrayList<ItemEntity>()
 
     @Mock
     private val itemsRepository: ItemsRepository? = null
@@ -37,33 +37,32 @@ class FeedViewModelTest {
         viewModel = FeedViewModel(itemsRepository!!)
 
         // Prepare fake data
-        val contentId = "fake/Item/Id"
-        val title = "Fake Item Title"
-        val summary = "Sport"
-        val contentUrl = "http://google.com"
+        val id = "932183"
+        val name = "Casual shirt"
+        val price = "£300"
         val thumbnailUrl = "http://google.com/picture.jpg"
 
         // Prepare fake Item Entity (DB object)
-        fakeItemEntity = ItemEntity(contentId, title, summary, contentUrl, thumbnailUrl)
+        fakeItemEntity = ItemEntity(id, name, price, null, thumbnailUrl)
 
-        // Prepare fake Articles Entities List
-        fakeArticleEntitiesList.add(fakeItemEntity!!)
+        // Prepare fake Item Entities List
+        fakeItemEntitiesList.add(fakeItemEntity!!)
     }
 
     @Test
-    fun fetchAllArticlesByFeedViewModel() {
+    fun fetchAllItemsByFeedViewModel() {
 
         // Prepare LiveData structure
-        val articleEntityLiveData = MutableLiveData<List<ItemEntity>>()
-        articleEntityLiveData.setValue(fakeArticleEntitiesList);
+        val itemEntityLiveData = MutableLiveData<List<ItemEntity>>()
+        itemEntityLiveData.setValue(fakeItemEntitiesList);
 
         // Set testing conditions
-        Mockito.`when`(itemsRepository?.getAllItems()).thenReturn(articleEntityLiveData)
+        Mockito.`when`(itemsRepository?.getAllItems()).thenReturn(itemEntityLiveData)
 
         // Perform the action
-        val storedArticles = viewModel?.getAllItems()
+        val storedItems = viewModel?.getAllItems()
 
         // Check results
-        Assert.assertSame(articleEntityLiveData, storedArticles);
+        Assert.assertSame(itemEntityLiveData, storedItems);
     }
 }

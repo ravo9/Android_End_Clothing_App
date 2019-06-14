@@ -22,7 +22,7 @@ class ItemsRepositoryTest {
 
     private var itemsRepository: ItemsRepository? = null
     private var fakeItemEntity: ItemEntity? = null
-    private var fakeArticleEntitiesList = ArrayList<ItemEntity>()
+    private var fakeItemEntitiesList = ArrayList<ItemEntity>()
 
     @Mock
     private val itemsDatabaseInteractor: ItemsDatabaseInteractor? = null
@@ -43,59 +43,58 @@ class ItemsRepositoryTest {
         itemsRepository = ItemsRepository(itemsNetworkInteractor!!, itemsDatabaseInteractor!!)
 
         // Prepare fake data
-        val contentId = "fake/Item/Id"
-        val title = "Fake Item Title"
-        val summary = "Sport"
-        val contentUrl = "http://google.com"
+        val id = "932183"
+        val name = "Casual shirt"
+        val price = "£300"
         val thumbnailUrl = "http://google.com/picture.jpg"
 
         // Prepare fake Item Entity (DB object)
-        fakeItemEntity = ItemEntity(contentId, title, summary, contentUrl, thumbnailUrl)
+        fakeItemEntity = ItemEntity(id, name, price, null, thumbnailUrl)
 
-        // Prepare fake Articles Entities List
-        fakeArticleEntitiesList.add(fakeItemEntity!!)
+        // Prepare fake Item Entities List
+        fakeItemEntitiesList.add(fakeItemEntity!!)
     }
 
     @Test
-    fun fetchAllArticlesByArticlesRepository() {
+    fun fetchAllItemsByItemsRepository() {
 
         // Prepare LiveData structure
-        val articleEntityLiveData = MutableLiveData<List<ItemEntity>>()
-        articleEntityLiveData.setValue(fakeArticleEntitiesList);
+        val itemEntityLiveData = MutableLiveData<List<ItemEntity>>()
+        itemEntityLiveData.setValue(fakeItemEntitiesList);
 
         // Prepare fake empty list for backend call
         val fakeList = ArrayList<ApiResponse.Item>()
         val fakeNetworkCallResult = Result.success(fakeList)
 
         // Set testing conditions
-        Mockito.`when`(itemsDatabaseInteractor?.getAllItems()).thenReturn(articleEntityLiveData)
+        Mockito.`when`(itemsDatabaseInteractor?.getAllItems()).thenReturn(itemEntityLiveData)
         Mockito.`when`(itemsNetworkInteractor?.getAllItems()).thenReturn(Observable.just(fakeNetworkCallResult))
 
         // Perform the action
-        val storedArticles = itemsRepository?.getAllItems()
+        val storedItems = itemsRepository?.getAllItems()
 
         // Check results
-        Assert.assertSame(articleEntityLiveData, storedArticles);
+        Assert.assertSame(itemEntityLiveData, storedItems);
     }
 
     @Test
-    fun fetchArticleByArticlesRepository() {
+    fun fetchItemByItemRepository() {
 
         // Prepare LiveData structure
-        val articleEntityLiveData = MutableLiveData<ItemEntity>()
-        articleEntityLiveData.setValue(fakeItemEntity);
+        val itemEntityLiveData = MutableLiveData<ItemEntity>()
+        itemEntityLiveData.setValue(fakeItemEntity);
 
-        // Prepare fake article id
-        val fakeArticleId = "fake/article/id"
+        // Prepare fake item id
+        val fakeItemId = "fake/item/id"
 
         // Set testing conditions
-        Mockito.`when`(itemsDatabaseInteractor?.getSingleSavedItemById(fakeArticleId))
-            .thenReturn(articleEntityLiveData)
+        Mockito.`when`(itemsDatabaseInteractor?.getSingleSavedItemById(fakeItemId))
+            .thenReturn(itemEntityLiveData)
 
         // Perform the action
-        val storedArticle = itemsRepository?.getSingleSavedItemById(fakeArticleId)
+        val storedItem = itemsRepository?.getSingleSavedItemById(fakeItemId)
 
         // Check results
-        Assert.assertSame(articleEntityLiveData, storedArticle);
+        Assert.assertSame(itemEntityLiveData, storedItem);
     }
 }

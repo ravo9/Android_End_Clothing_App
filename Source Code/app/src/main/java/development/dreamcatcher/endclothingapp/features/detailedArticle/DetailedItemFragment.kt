@@ -48,7 +48,7 @@ class DetailedItemFragment : Fragment() {
     private fun subscribeForArticle() {
         val articleId = this.arguments?.getString("articleId")
         /*if (!articleId.isNullOrEmpty()) {
-            viewModel.getSingleSavedArticleById(articleId)?.observe(this, Observer<ItemEntity> {
+            viewModel.getSingleSavedItemById(articleId)?.observe(this, Observer<ItemEntity> {
                 setupWebView(it.contentUrl)
             })
         }*/

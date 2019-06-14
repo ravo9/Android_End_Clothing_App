@@ -45,15 +45,12 @@ class ItemsGridAdapter (val context: Context) : BaseAdapter() {
         // Prepare data values
         val name = item.name
         val price = item.price
-        var producer = item.producer
-        var color = item.producer
-        if (producer == null) producer = ""
-        if (color == null) color = ""
+        var color = item.color
+        if (color == null) color = "Default Color"
 
         // Set data within the view
         itemView.name.text = name
         itemView.price.text = price
-        itemView.producer.text = producer
         itemView.color.text = color
 
         // Load thumbnail

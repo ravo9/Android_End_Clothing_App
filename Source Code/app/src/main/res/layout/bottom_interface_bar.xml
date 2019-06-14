@@ -1,60 +1,94 @@
 <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:animateLayoutChanges="true"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_interface_bar_height"
-        android:background="@color/colorBackground">
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/bottom_interface_bar_padding_vertical"
+        android:paddingBottom="@dimen/bottom_interface_bar_padding_vertical"
+        android:elevation="@dimen/bottom_interface_bar_elevation"
+        android:background="@drawable/background_badge">
 
-        <ImageView
-                android:id="@+id/search_icon"
+        <RelativeLayout
+                android:id="@+id/search_icon_container"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/bottom_interface_icon_spacing"
-                android:src="@drawable/search_image"
 
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/label_icon"/>
+                app:layout_constraintEnd_toStartOf="@id/label_icon_container">
 
-        <ImageView
-                android:id="@+id/label_icon"
+                <ImageButton
+                        style="@style/BottomInterfaceBarItem"
+                        android:layout_width="@dimen/bottom_interface_icon_width"
+                        android:layout_height="@dimen/bottom_interface_icon_width"
+                        android:src="@drawable/search_image"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/label_icon_container"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="@dimen/bottom_interface_icon_spacing"
-                android:src="@drawable/label_image"
 
-                app:layout_constraintStart_toEndOf="@id/search_icon"
-                app:layout_constraintEnd_toStartOf="@id/end_icon"/>
+                app:layout_constraintStart_toEndOf="@id/search_icon_container"
+                app:layout_constraintEnd_toStartOf="@id/end_icon_container">
 
-        <ImageView
-                android:id="@+id/end_icon"
+                <ImageButton
+                        style="@style/BottomInterfaceBarItem"
+                        android:layout_width="@dimen/bottom_interface_icon_width"
+                        android:layout_height="@dimen/bottom_interface_icon_width"
+                        android:src="@drawable/label_image"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/end_icon_container"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="@dimen/bottom_interface_icon_spacing"
-                android:src="@drawable/end_logo_image"
 
-                app:layout_constraintStart_toEndOf="@id/label_icon"
-                app:layout_constraintEnd_toStartOf="@id/human_icon"/>
+                app:layout_constraintStart_toEndOf="@id/label_icon_container"
+                app:layout_constraintEnd_toStartOf="@id/human_icon_container">
 
-        <ImageView
-                android:id="@+id/human_icon"
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/bottom_interface_end_icon_height"
+                        android:background="@null"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/end_logo_image"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+                android:id="@+id/human_icon_container"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="@dimen/bottom_interface_icon_spacing"
-                android:src="@drawable/human_image"
-                android:clickable="true"
 
-                app:layout_constraintStart_toEndOf="@id/end_icon"
-                app:layout_constraintEnd_toStartOf="@id/shopping_icon"/>
+                app:layout_constraintStart_toEndOf="@id/end_icon_container"
+                app:layout_constraintEnd_toStartOf="@id/shopping_icon_container">
 
-        <ImageView
-                android:id="@+id/shopping_icon"
+                <ImageButton
+                        style="@style/BottomInterfaceBarItem"
+                        android:layout_width="@dimen/bottom_interface_icon_width"
+                        android:layout_height="@dimen/bottom_interface_icon_width"
+                        android:src="@drawable/human_image"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/shopping_icon_container"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="@dimen/bottom_interface_icon_spacing"
-                android:src="@drawable/shopping_image"
-                android:clickable="true"
 
-                app:layout_constraintStart_toEndOf="@id/human_icon"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintStart_toEndOf="@id/human_icon_container"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageButton
+                        style="@style/BottomInterfaceBarItem"
+                        android:layout_width="@dimen/bottom_interface_icon_width"
+                        android:layout_height="@dimen/bottom_interface_icon_width"
+                        android:src="@drawable/shopping_image"/>
+
+        </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

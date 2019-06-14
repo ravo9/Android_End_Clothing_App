@@ -15,8 +15,10 @@
 
     <dimen name="top_interface_bar_height">60dp</dimen>
 
-    <dimen name="bottom_interface_bar_height">48dp</dimen>
-    <dimen name="bottom_interface_icon_spacing">12dp</dimen>
+    <dimen name="bottom_interface_bar_elevation">8dp</dimen>
+    <dimen name="bottom_interface_bar_padding_vertical">14dp</dimen>
+    <dimen name="bottom_interface_icon_width">28dp</dimen>
+    <dimen name="bottom_interface_end_icon_height">28dp</dimen>
 
     <dimen name="articles_list_row_padding">20dp</dimen>
     <dimen name="articles_list_row_margin_horizontal">20dp</dimen>

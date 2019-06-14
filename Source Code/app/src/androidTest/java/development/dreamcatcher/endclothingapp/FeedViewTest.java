@@ -27,10 +27,10 @@ public class FeedViewTest {
             new ActivityTestRule<>(FeedActivity.class);
 
     @Test
-    public void clickOnListedArticle_opensDetailedView() throws Exception {
+    public void clickOnListedItem_opensDetailedView() throws Exception {
 
         // Click on the first article.
-        onView(withId(R.id.recyclerView_products))
+        onView(withId(R.id.gridView_products))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
 
         // Verify if detailed view has been displayed.
@@ -41,7 +41,7 @@ public class FeedViewTest {
     public void clickOnCrossButton_closesDetailedView() throws Exception {
 
         // Click on the first article.
-        onView(withId(R.id.recyclerView_products))
+        onView(withId(R.id.gridView_products))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
 
         // Click on the Cross button.

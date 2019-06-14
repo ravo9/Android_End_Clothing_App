@@ -35,33 +35,32 @@ class DetailedItemViewModelTest {
         viewModel = DetailedItemViewModel(itemsRepository!!)
 
         // Prepare fake data
-        val contentId = "fake/Item/Id"
-        val title = "Fake Item Title"
-        val summary = "Sport"
-        val contentUrl = "http://google.com"
+        val id = "932183"
+        val name = "Casual shirt"
+        val price = "£300"
         val thumbnailUrl = "http://google.com/picture.jpg"
 
         // Prepare fake Item Entity (DB object)
-        fakeItemEntity = ItemEntity(contentId, title, summary, contentUrl, thumbnailUrl)
+        fakeItemEntity = ItemEntity(id, name, price, null, thumbnailUrl)
     }
 
     @Test
-    fun fetchArticleByFeedViewModel() {
+    fun fetchItemByFeedViewModel() {
 
         // Prepare LiveData structure
-        val articleEntityLiveData = MutableLiveData<ItemEntity>()
-        articleEntityLiveData.setValue(fakeItemEntity);
+        val itemEntityLiveData = MutableLiveData<ItemEntity>()
+        itemEntityLiveData.setValue(fakeItemEntity);
 
-        // Prepare fake article id
-        val fakeArticleId = "fake/article/id"
+        // Prepare fake item id
+        val fakeItemId = "fake/item/id"
 
         // Set testing conditions
-        Mockito.`when`(itemsRepository?.getSingleSavedItemById(fakeArticleId)).thenReturn(articleEntityLiveData)
+        Mockito.`when`(itemsRepository?.getSingleSavedItemById(fakeItemId)).thenReturn(itemEntityLiveData)
 
         // Perform the action
-        val storedArticles = viewModel?.getSingleSavedArticleById(fakeArticleId)
+        val storedItems = viewModel?.getSingleSavedItemById(fakeItemId)
 
         // Check results
-        Assert.assertSame(articleEntityLiveData, storedArticles);
+        Assert.assertSame(itemEntityLiveData, storedItems);
     }
 }
