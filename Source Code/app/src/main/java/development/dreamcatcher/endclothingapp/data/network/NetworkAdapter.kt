@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // Network Adapter used for ApiClient building
 object NetworkAdapter {
 
-    const private val BASE_URL = "https://endclothing.com"
+    private const val BASE_URL = Constants.BASE_URL
 
     fun apiClient(): ApiClient {
         val builder = Builder()

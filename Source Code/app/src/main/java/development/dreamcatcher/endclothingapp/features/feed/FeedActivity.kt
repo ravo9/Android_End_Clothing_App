@@ -1,8 +1,8 @@
 package development.dreamcatcher.endclothingapp.features.feed
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+import android.widget.ArrayAdapter
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -11,8 +11,9 @@ import development.dreamcatcher.endclothingapp.R
 import development.dreamcatcher.endclothingapp.data.database.ItemEntity
 import development.dreamcatcher.endclothingapp.injection.EndClothingApp
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.loading_badge.*
+import kotlinx.android.synthetic.main.top_interface_bar.*
 import javax.inject.Inject
+
 
 // Main items (products) feed) view
 class FeedActivity : AppCompatActivity() {
@@ -33,6 +34,10 @@ class FeedActivity : AppCompatActivity() {
         // Initialize ViewModel
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(FeedViewModel::class.java)
 
+        // Initialize Spinners
+        setupSortSpinner()
+        setupViewSpinner()
+
         // Initialize RecyclerView (items/ products list)
         setupRecyclerView()
 
@@ -41,11 +46,6 @@ class FeedActivity : AppCompatActivity() {
 
         // Catch and handle potential network issues
         subscribeForNetworkError()
-
-        // Setup refresh button
-        /*btn_refresh.setOnClickListener{
-            refreshItemsSubscription()
-        }*/
     }
 
     private fun setupRecyclerView() {
@@ -58,9 +58,6 @@ class FeedActivity : AppCompatActivity() {
 
             if (!it.isNullOrEmpty()) {
 
-                // Hide the loading view
-                showLoadingView(false)
-
                 // Display fetched items
                 itemsGridAdapter.setItems(it)
             }
@@ -70,50 +67,67 @@ class FeedActivity : AppCompatActivity() {
     private fun subscribeForNetworkError() {
         viewModel.getNetworkError()?.observe(this, Observer<Boolean> {
 
-            // In case of Network Error...
-            // If no items have been cached
-            if (itemsGridAdapter.count == 0) {
-
-                // Display "Try Again" button
-                tryagain_button.visibility = View.VISIBLE
-
-                // Setup onClick listener that reset items data subscription
-                tryagain_button.setOnClickListener {
-                    refreshItemsSubscription()
-                }
-            }
-
-            // Display error message to the user
-            Toast.makeText(this, R.string.network_problem_check_internet_connection,
-                Toast.LENGTH_LONG) .show()
+            // Display the "Connection problem" dialogbox
+            displayConnectionProblemDialogbox()
         })
     }
 
     private fun refreshItemsSubscription() {
-        viewModel.getAllItems()?.removeObservers(this)
-        subscribeForItems()
+
+        // Reset items subscription (if no items have been cached as far)
+        if (itemsGridAdapter.count == 0) {
+            viewModel.getAllItems()?.removeObservers(this)
+            subscribeForItems()
+        }
     }
 
-    /*private fun displayDetailedView(itemId: String) {
+    private fun displayConnectionProblemDialogbox() {
+        val builder = AlertDialog.Builder(this)
 
-        val fragment = DetailedItemFragment()
-        val bundle = Bundle()
-        bundle.putString("itemId", itemId)
-        fragment.arguments = bundle
+        builder.setMessage(R.string.there_is_a_problem_connecting)
+            .setTitle(R.string.connection_problem)
 
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.main_container, fragment)
-            .addToBackStack(null)
-            .commit()
-    }*/
-
-    private fun showLoadingView(loadingState: Boolean) {
-        if (loadingState) {
-            loading_container.visibility = View.VISIBLE
-            top_interface_bar_container.visibility = View.GONE
-        } else {
-            loading_container.visibility = View.GONE
-            top_interface_bar_container.visibility = View.VISIBLE
+        builder.setPositiveButton(R.string.ok) { _, _ ->
+            refreshItemsSubscription()
         }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun setupSortSpinner() {
+
+        // Prepare spinner options
+        val options = arrayOf("Latest", "Price (High)", "Price (Low)")
+
+        // Initialize spinner adapter
+        ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options)
+            .also { adapter ->
+
+                // Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+                // Apply the adapter to the spinner
+                spinner_sort.adapter = adapter
+                spinner_sort.prompt = getString(R.string.sort)
+        }
+    }
+
+    private fun setupViewSpinner() {
+
+        // Prepare spinner options
+        val options = arrayOf("Product", "Outfit", "Large", "Small")
+
+        // Initialize spinner adapter
+        ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options)
+            .also { adapter ->
+
+                // Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+                // Apply the adapter to the spinner
+                spinner_view.adapter = adapter
+                spinner_view.prompt = getString(R.string.view)
+            }
     }
 }

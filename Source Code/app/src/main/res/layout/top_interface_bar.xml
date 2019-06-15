@@ -26,6 +26,7 @@
                         android:text="@string/sort"/>
 
                 <Spinner
+                        android:id="@+id/spinner_sort"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"/>
@@ -51,6 +52,7 @@
                         android:text="@string/view"/>
 
                 <Spinner
+                        android:id="@+id/spinner_view"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"/>

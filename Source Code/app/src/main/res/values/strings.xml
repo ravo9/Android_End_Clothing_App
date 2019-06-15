@@ -1,10 +1,14 @@
 <resources>
 
-    <string name="app_name">End Clothing App</string>
+    <string name="app_name">END.</string>
 
     <string name="loading">Loading…</string>
-    <string name="network_problem_check_internet_connection">Network problem. Check Internet connection please.</string>
-    <string name="try_again">Try again</string>
+
+    <string name="connection_problem">Connection problem</string>
+    <string name="there_is_a_problem_connecting">There is a problem connecting to our servers. Press OK to try again. Error (1599)</string>
+
+    <string name="ok">OK</string>
+
     <string name="sort">Sort</string>
     <string name="view">View</string>
     <string name="filter">Filter</string>

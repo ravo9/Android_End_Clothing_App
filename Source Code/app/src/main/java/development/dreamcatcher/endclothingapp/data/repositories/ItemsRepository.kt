@@ -29,10 +29,10 @@ class ItemsRepository @Inject constructor(private val itemsNetworkInteractor:  I
         itemsNetworkInteractor.getAllItems().subscribe {
             if (it.isSuccess && it.getOrDefault(null)?.size!! > 0) {
 
-                // Clear database not to store outdated articles
+                // Clear database not to store outdated data
                 databaseInteractor.clearDatabase()
 
-                // Save freshly fetched articles
+                // Save freshly fetched items
                 it.getOrNull()?.forEach {
                     databaseInteractor.addNewItem(it)
                 }

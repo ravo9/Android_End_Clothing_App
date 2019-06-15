@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.viewpager.widget.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/viewpager_triplet_container"
-        android:background="@drawable/background_badge"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/articles_viewpager_height" />

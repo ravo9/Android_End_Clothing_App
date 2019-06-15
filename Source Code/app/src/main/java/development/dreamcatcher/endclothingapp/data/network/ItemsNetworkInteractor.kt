@@ -8,8 +8,8 @@ import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.SingleSubject
 import javax.inject.Inject
 
-// Interactor used for communication between data repository and external API
-class ItemsNetworkInteractor @Inject constructor(var apiClient: ApiClient) {
+// Interactor used for communication between data repository and the external API
+class ItemsNetworkInteractor @Inject constructor(private var apiClient: ApiClient) {
 
     val networkError: MutableLiveData<Boolean> = MutableLiveData()
 

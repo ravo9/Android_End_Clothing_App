@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -12,13 +12,14 @@
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textAlignment">center</item>
         <item name="android:fontFamily">@fonts/northwoods_ultra_light</item>
+
     </style>
 
-    <style name="BottomInterfaceBarItem">
+    <style name="BottomInterfaceBarItemIconStyle">
         <item name="android:clickable">true</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:scaleType">fitXY</item>
-        <item name="android:background">@null</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
 </resources>
