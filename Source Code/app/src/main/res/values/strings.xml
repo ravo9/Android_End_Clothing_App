@@ -13,6 +13,13 @@
     <string name="view">View</string>
     <string name="filter">Filter</string>
 
+    <string name="brand">brand</string>
+    <string name="department">department</string>
+    <string name="colour">colour</string>
+    <string name="clothing_size">clothing size</string>
+    <string name="footwear_size">footwear size</string>
+    <string name="all">All</string>
+
     <string name="producer_default_value">Default Producer</string>
     <string name="color_default_value">Default Colour</string>
 

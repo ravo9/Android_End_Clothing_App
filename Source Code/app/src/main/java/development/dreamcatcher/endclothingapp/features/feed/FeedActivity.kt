@@ -2,8 +2,10 @@ package development.dreamcatcher.endclothingapp.features.feed
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -11,13 +13,11 @@ import development.dreamcatcher.endclothingapp.R
 import development.dreamcatcher.endclothingapp.data.database.ItemEntity
 import development.dreamcatcher.endclothingapp.injection.EndClothingApp
 import development.dreamcatcher.endclothingapp.utils.Converters
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.side_drawer_layout.*
 import kotlinx.android.synthetic.main.top_interface_bar.*
 import javax.inject.Inject
-import android.view.ViewTreeObserver
-
-
-
 
 // Main items (products) feed) view
 class FeedActivity : AppCompatActivity() {
@@ -38,6 +38,9 @@ class FeedActivity : AppCompatActivity() {
         // Initialize ViewModel
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(FeedViewModel::class.java)
 
+        // Initialize Side Drawer
+        setupSideDrawer()
+
         // Initialize Spinners
         setupSortSpinner()
         setupViewSpinner()
@@ -52,6 +55,24 @@ class FeedActivity : AppCompatActivity() {
         subscribeForNetworkError()
     }
 
+    private fun setupSideDrawer() {
+
+        // Initialize Side Drawer layout
+        val drawerListener = ActionBarDrawerToggle(this, main_layout_container, R.string.sort, R.string.filter)
+        main_layout_container.addDrawerListener(drawerListener)
+        drawerListener.syncState()
+
+        // Set Filter button onClick listener
+        textView_filter.setOnClickListener{
+            main_layout_container.openDrawer(GravityCompat.END)
+        }
+
+        // Set (Side Drawer's) Close button onClick listener
+        close_btn.setOnClickListener{
+            main_layout_container.closeDrawer(GravityCompat.END)
+        }
+    }
+
     private fun setupRecyclerView() {
         itemsGridAdapter = ItemsGridAdapter(this)
         gridView_products.adapter = itemsGridAdapter
@@ -60,9 +81,8 @@ class FeedActivity : AppCompatActivity() {
     private fun subscribeForItems() {
         viewModel.getAllItems()?.observe(this, Observer<List<ItemEntity>> {
 
+            // Display fetched items
             if (!it.isNullOrEmpty()) {
-
-                // Display fetched items
                 itemsGridAdapter.setItems(it)
             }
         })
@@ -105,40 +125,21 @@ class FeedActivity : AppCompatActivity() {
         val options = arrayOf("Latest", "Price (High)", "Price (Low)")
 
         // Initialize spinner adapter
-        ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options)
+        ArrayAdapter<String>(this, R.layout.spinner_item, options)
             .also { adapter ->
 
                 // Specify the layout to use when the list of choices appears
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
                 // Apply the adapter to the spinner
                 spinner_sort.adapter = adapter
 
                 // Set the spinner prompt
-                spinner_sort_prompt.text = getString(R.string.sort)
+                //spinner_sort_prompt.text = getString(R.string.sort)
 
                 // Set the dropdown layout width (cannot be set in xml in this way)
                 val dropdownLayoutWidth = Converters.convertPxToDp(resources.displayMetrics.widthPixels / 3, this)
                 spinner_sort.dropDownWidth = dropdownLayoutWidth
-
-
-                // Set the dropdown layout offset (cannot be set in xml in this way)
-
-                spinner_sort.getViewTreeObserver().addOnGlobalLayoutListener(
-                    object : ViewTreeObserver.OnGlobalLayoutListener {
-                        override fun onGlobalLayout() {
-                            // Layout has happened here.
-
-                            val horizontalOffset = -(spinner_sort.x - spinner_sort_container.x).toInt()
-                            spinner_sort.dropDownHorizontalOffset = 500
-                            spinner_sort.refreshDrawableState()
-
-                            // Don't forget to remove your listener when you are done with it.
-                            spinner_sort.getViewTreeObserver().removeOnGlobalLayoutListener(this)
-                        }
-                    })
-
-
         }
     }
 
@@ -148,11 +149,11 @@ class FeedActivity : AppCompatActivity() {
         val options = arrayOf("Product", "Outfit", "Large", "Small")
 
         // Initialize spinner adapter
-        ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options)
+        ArrayAdapter<String>(this, R.layout.spinner_item, options)
             .also { adapter ->
 
                 // Specify the layout to use when the list of choices appears
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
 
                 // Apply the adapter to the spinner
                 spinner_view.adapter = adapter

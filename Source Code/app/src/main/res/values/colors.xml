@@ -11,4 +11,7 @@
     <color name="colorText">#000</color>
     <color name="colorTextAlternative">#A7A7A7</color>
 
+    <color name="colorSpinnerSelectedItemBackground">#F2F2F2</color>
+    <color name="colorSpinnerUnSelectedItemBackground">#FAFAFA</color>
+
 </resources>

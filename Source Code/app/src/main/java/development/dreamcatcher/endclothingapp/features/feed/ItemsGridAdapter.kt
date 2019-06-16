@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.bumptech.glide.Glide
-import com.squareup.picasso.Picasso
 import development.dreamcatcher.endclothingapp.R
 import development.dreamcatcher.endclothingapp.data.database.ItemEntity
 import kotlinx.android.synthetic.main.grid_single_item.view.*
-import java.lang.Exception
 
 // Main adapter used for managing items grid within the main Feed View
 class ItemsGridAdapter (val context: Context) : BaseAdapter() {
@@ -46,7 +44,7 @@ class ItemsGridAdapter (val context: Context) : BaseAdapter() {
         val name = item.name
         val price = item.price
         var color = item.color
-        if (color == null) color = "Default Color"
+        if (color == null) color = context.getString(R.string.color_default_value)
 
         // Set data within the view
         itemView.name.text = name
@@ -56,10 +54,7 @@ class ItemsGridAdapter (val context: Context) : BaseAdapter() {
         // Load thumbnail
         val imageUrl = item.image
         val thumbnail = itemView.thumbnail
-
-        try {
-            Glide.with(context).load(imageUrl).into(thumbnail);
-        }
+        try { Glide.with(context).load(imageUrl).into(thumbnail); }
         catch (e: Exception) {
             Log.e("Exception", e.message);
         }

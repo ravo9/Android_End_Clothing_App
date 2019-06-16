@@ -5,6 +5,7 @@
     <dimen name="background_badge_padding">3dp</dimen>
     <dimen name="background_badge_corner_radius">2px</dimen>
 
+    <dimen name="appbar_height">70dp</dimen>
     <dimen name="appbar_padding_vertical">20dp</dimen>
     <dimen name="appbar_text_size">20sp</dimen>
     <dimen name="appbar_margin_start">14dp</dimen>
@@ -20,12 +21,17 @@
     <dimen name="bottom_interface_icon_width">28dp</dimen>
     <dimen name="bottom_interface_end_icon_height">28dp</dimen>
 
+    <dimen name="side_drawer_top_bar_elevation">2dp</dimen>
+    <dimen name="side_drawer_element_padding">15dp</dimen>
+    <dimen name="side_drawer_element_internal_spacing">10dp</dimen>
+    <dimen name="side_drawer_element_bottom_spacing">14dp</dimen>
+
     <dimen name="feed_view_padding_vertical">15dp</dimen>
 
     <dimen name="grid_single_item_height">350dp</dimen>
     <dimen name="grid_single_item_padding">15dp</dimen>
     <dimen name="grid_single_item_thumbnail_margin_bottom">20dp</dimen>
 
-    <dimen name="spinner_width">50dp</dimen>
+    <dimen name="simple_spinner_dropdown_item_height">60dp</dimen>
 
 </resources>

@@ -18,7 +18,7 @@
                 app:layout_constraintEnd_toStartOf="@id/label_icon_container">
 
                 <ImageButton
-                        style="@style/BottomInterfaceBarItemIconStyle"
+                        style="@style/BottomInterfaceBarItemIcon"
                         android:layout_width="@dimen/bottom_interface_icon_width"
                         android:layout_height="@dimen/bottom_interface_icon_width"
                         android:src="@drawable/search_image"/>
@@ -34,7 +34,7 @@
                 app:layout_constraintEnd_toStartOf="@id/end_icon_container">
 
                 <ImageButton
-                        style="@style/BottomInterfaceBarItemIconStyle"
+                        style="@style/BottomInterfaceBarItemIcon"
                         android:layout_width="@dimen/bottom_interface_icon_width"
                         android:layout_height="@dimen/bottom_interface_icon_width"
                         android:src="@drawable/label_image"/>
@@ -68,7 +68,7 @@
                 app:layout_constraintEnd_toStartOf="@id/shopping_icon_container">
 
                 <ImageButton
-                        style="@style/BottomInterfaceBarItemIconStyle"
+                        style="@style/BottomInterfaceBarItemIcon"
                         android:layout_width="@dimen/bottom_interface_icon_width"
                         android:layout_height="@dimen/bottom_interface_icon_width"
                         android:src="@drawable/human_image"/>
@@ -84,7 +84,7 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <ImageButton
-                        style="@style/BottomInterfaceBarItemIconStyle"
+                        style="@style/BottomInterfaceBarItemIcon"
                         android:layout_width="@dimen/bottom_interface_icon_width"
                         android:layout_height="@dimen/bottom_interface_icon_width"
                         android:src="@drawable/shopping_image"/>

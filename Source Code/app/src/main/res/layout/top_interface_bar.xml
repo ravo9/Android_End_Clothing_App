@@ -27,7 +27,7 @@
 
                 <Spinner
                         android:id="@+id/spinner_sort"
-                        android:layout_width="@dimen/spinner_width"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"/>
 
@@ -49,11 +49,12 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="13dp"
                         android:gravity="center"
+                        android:textSize="13dp"
                         android:text="@string/view"/>
 
                 <Spinner
                         android:id="@+id/spinner_view"
-                        android:layout_width="@dimen/spinner_width"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"/>
 

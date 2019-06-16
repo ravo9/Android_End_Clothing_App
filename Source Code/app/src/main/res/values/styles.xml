@@ -13,13 +13,42 @@
         <item name="android:textAlignment">center</item>
         <item name="android:fontFamily">@fonts/northwoods_ultra_light</item>
 
+        <item name="android:spinnerDropDownItemStyle">@style/AppSpinnerDropDownItem</item>
+
     </style>
 
-    <style name="BottomInterfaceBarItemIconStyle">
+    <style name="BottomInterfaceBarItemIcon">
         <item name="android:clickable">true</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:scaleType">fitXY</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="AppSpinnerDropDownItem" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:background">@drawable/spinner_selector_item</item>
+    </style>
+
+    <style name="AppBarTitle">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textSize">@dimen/appbar_text_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SideDrawerElementStyle">
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:paddingStart">@dimen/side_drawer_element_padding</item>
+        <item name="android:paddingEnd">@dimen/side_drawer_element_padding</item>
+    </style>
+
+    <style name="SideDrawerElementTitle" parent="SideDrawerElementStyle">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="SideDrawerElementSubTitle" parent="SideDrawerElementStyle">
+        <item name="android:textColor">@color/colorTextAlternative</item>
     </style>
 
 </resources>
