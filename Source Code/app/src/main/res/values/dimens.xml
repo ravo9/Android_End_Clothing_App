@@ -26,4 +26,6 @@
     <dimen name="grid_single_item_padding">15dp</dimen>
     <dimen name="grid_single_item_thumbnail_margin_bottom">20dp</dimen>
 
+    <dimen name="spinner_width">50dp</dimen>
+
 </resources>

@@ -10,9 +10,13 @@ import androidx.lifecycle.ViewModelProviders
 import development.dreamcatcher.endclothingapp.R
 import development.dreamcatcher.endclothingapp.data.database.ItemEntity
 import development.dreamcatcher.endclothingapp.injection.EndClothingApp
+import development.dreamcatcher.endclothingapp.utils.Converters
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.top_interface_bar.*
 import javax.inject.Inject
+import android.view.ViewTreeObserver
+
+
 
 
 // Main items (products) feed) view
@@ -109,7 +113,32 @@ class FeedActivity : AppCompatActivity() {
 
                 // Apply the adapter to the spinner
                 spinner_sort.adapter = adapter
-                spinner_sort.prompt = getString(R.string.sort)
+
+                // Set the spinner prompt
+                spinner_sort_prompt.text = getString(R.string.sort)
+
+                // Set the dropdown layout width (cannot be set in xml in this way)
+                val dropdownLayoutWidth = Converters.convertPxToDp(resources.displayMetrics.widthPixels / 3, this)
+                spinner_sort.dropDownWidth = dropdownLayoutWidth
+
+
+                // Set the dropdown layout offset (cannot be set in xml in this way)
+
+                spinner_sort.getViewTreeObserver().addOnGlobalLayoutListener(
+                    object : ViewTreeObserver.OnGlobalLayoutListener {
+                        override fun onGlobalLayout() {
+                            // Layout has happened here.
+
+                            val horizontalOffset = -(spinner_sort.x - spinner_sort_container.x).toInt()
+                            spinner_sort.dropDownHorizontalOffset = 500
+                            spinner_sort.refreshDrawableState()
+
+                            // Don't forget to remove your listener when you are done with it.
+                            spinner_sort.getViewTreeObserver().removeOnGlobalLayoutListener(this)
+                        }
+                    })
+
+
         }
     }
 
@@ -127,7 +156,13 @@ class FeedActivity : AppCompatActivity() {
 
                 // Apply the adapter to the spinner
                 spinner_view.adapter = adapter
-                spinner_view.prompt = getString(R.string.view)
+
+                // Set the spinner prompt
+                spinner_view_prompt.text = getString(R.string.view)
+
+                // Set the dropdown layout width (cannot be set in xml in this way)
+                val dropdownLayoutWidth = Converters.convertPxToDp(resources.displayMetrics.widthPixels / 3, this)
+                spinner_view.dropDownWidth = dropdownLayoutWidth
             }
     }
 }

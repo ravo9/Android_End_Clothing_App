@@ -12,22 +12,22 @@
                 android:background="@drawable/background_top_interface_bar_item"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="8dp"
 
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/spinner_view_container"
                 tools:ignore="MissingConstraints">
 
                 <TextView
+                        android:id="@+id/spinner_sort_prompt"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="13dp"
                         android:gravity="center"
                         android:text="@string/sort"/>
 
                 <Spinner
                         android:id="@+id/spinner_sort"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/spinner_width"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"/>
 
@@ -38,22 +38,22 @@
                 android:background="@drawable/background_top_interface_bar_item"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:padding="8dp"
 
                 app:layout_constraintStart_toEndOf="@id/spinner_sort_container"
                 app:layout_constraintEnd_toStartOf="@id/textView_filter"
                 tools:ignore="MissingConstraints">
 
                 <TextView
+                        android:id="@+id/spinner_view_prompt"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="13dp"
                         android:gravity="center"
                         android:text="@string/view"/>
 
                 <Spinner
                         android:id="@+id/spinner_view"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/spinner_width"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"/>
 
