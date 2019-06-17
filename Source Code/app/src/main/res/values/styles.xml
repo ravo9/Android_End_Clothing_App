@@ -18,7 +18,7 @@
     </style>
 
     <style name="BottomInterfaceBarItemIcon">
-        <item name="android:clickable">true</item>
+        <item name="android:clickable">false</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:scaleType">fitXY</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
